@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Params Example</title>
+    <script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getParamValue(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Menampilkan teks pada elemen <p>
+        window.onload = function() {
+            const paramValue = getParamValue('text'); // Ganti 'text' dengan nama parameter URL
+            if (paramValue) {
+                const pElement = document.createElement('p');
+                pElement.textContent = paramValue;
+                document.body.appendChild(pElement);
+            } else {
+                const pElement = document.createElement('p');
+                pElement.textContent = "Parameter 'text' tidak ditemukan.";
+                document.body.appendChild(pElement);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Contoh URL Params</h1>
+    <p>Tambahkan ?text=Halo untuk melihat hasilnya.</p>
+</body>
+</html>
